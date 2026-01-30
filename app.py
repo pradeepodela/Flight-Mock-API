@@ -100,6 +100,15 @@ def flight_details(flight_id):
 
     return jsonify({"error": "Flight not found"}), 404
 
+@app.route("/oauth/token", methods=["POST"])
+def oauth_token():
+
+    return jsonify({
+        "access_token": "demo-access-token",
+        "token_type": "Bearer",
+        "expires_in": 3600,
+        "scope": "flights.search flights.read"
+    })
 
 # --------------------------------
 # RAILWAY PORT CONFIG
