@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
 import os
+import uuid
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -35,6 +37,35 @@ MOCK_FLIGHTS = [
 ]
 
 # --------------------------------
+# MOCK CUSTOMER PREFERENCES DB
+# --------------------------------
+
+MOCK_CUSTOMERS = [
+    {
+        "email": "rahul@gmail.com",
+        "name": "Rahul Sharma",
+        "preferences": {
+            "preferred_airline": "Indigo",
+            "seat_type": "Window",
+            "meal": "Veg",
+            "budget_range": "3000-6000",
+            "time_preference": "Morning"
+        }
+    },
+    {
+        "email": "pradeep@gmail.com",
+        "name": "Pradeep Odela",
+        "preferences": {
+            "preferred_airline": "Vistara",
+            "seat_type": "Aisle",
+            "meal": "Non-Veg",
+            "budget_range": "4000-8000",
+            "time_preference": "Evening"
+        }
+    }
+]
+
+# --------------------------------
 # HEALTH CHECK
 # --------------------------------
 
@@ -47,13 +78,28 @@ def home():
 
 
 # --------------------------------
+# OAUTH TOKEN (MOCK)
+# --------------------------------
+
+@app.route("/oauth/token", methods=["POST"])
+def oauth_token():
+
+    return jsonify({
+        "access_token": "demo-access-token",
+        "token_type": "Bearer",
+        "expires_in": 3600,
+        "scope": "flights.search flights.read flights.book customers.read"
+    })
+
+
+# --------------------------------
 # SEARCH FLIGHTS
 # --------------------------------
 
 @app.route("/flight-search", methods=["POST"])
 def flight_search():
 
-    data = request.json
+    data = request.get_json(force=True)
 
     source = data.get("source")
     destination = data.get("destination")
@@ -94,21 +140,86 @@ def flight_search():
 @app.route("/flight-details/<flight_id>", methods=["GET"])
 def flight_details(flight_id):
 
+    flight_id = flight_id.upper()
+
     for flight in MOCK_FLIGHTS:
         if flight["flight_id"] == flight_id:
             return jsonify(flight)
 
     return jsonify({"error": "Flight not found"}), 404
 
-@app.route("/oauth/token", methods=["POST"])
-def oauth_token():
 
-    return jsonify({
-        "access_token": "demo-access-token",
-        "token_type": "Bearer",
-        "expires_in": 3600,
-        "scope": "flights.search flights.read"
-    })
+# --------------------------------
+# CUSTOMER PREFERENCES
+# --------------------------------
+
+@app.route("/customer-preferences", methods=["GET"])
+def customer_preferences():
+
+    email = request.args.get("email")
+
+    if not email:
+        return jsonify({"error": "email is required"}), 400
+
+    for customer in MOCK_CUSTOMERS:
+        if customer["email"].lower() == email.lower():
+            return jsonify({
+                "email": customer["email"],
+                "name": customer["name"],
+                "preferences": customer["preferences"]
+            })
+
+    return jsonify({"error": "Customer not found"}), 404
+
+
+# --------------------------------
+# BOOK FLIGHT (DUMMY)
+# --------------------------------
+
+@app.route("/book-flight", methods=["POST"])
+def book_flight():
+
+    data = request.get_json(force=True)
+
+    flight_id = data.get("flight_id")
+    email = data.get("email")
+
+    if not flight_id or not email:
+        return jsonify({"error": "flight_id and email are required"}), 400
+
+    flight_id = flight_id.upper()
+
+    selected_flight = None
+
+    for flight in MOCK_FLIGHTS:
+        if flight["flight_id"] == flight_id:
+            selected_flight = flight
+            break
+
+    if not selected_flight:
+        return jsonify({"error": "Flight not found"}), 404
+
+    booking_reference = "PNR-" + uuid.uuid4().hex[:8].upper()
+
+    booking_response = {
+        "status": "SUCCESS",
+        "message": "Flight booked successfully ✈️",
+        "booking_details": {
+            "pnr": booking_reference,
+            "flight_id": flight_id,
+            "airline": selected_flight["airline"],
+            "route": selected_flight["route"],
+            "departure": selected_flight["timings"]["departure"],
+            "arrival": selected_flight["timings"]["arrival"],
+            "date": selected_flight["date"],
+            "passenger_email": email,
+            "seat_number": "W" + str(uuid.uuid4().int % 60),
+            "booking_time": datetime.utcnow().isoformat()
+        }
+    }
+
+    return jsonify(booking_response)
+
 
 # --------------------------------
 # RAILWAY PORT CONFIG
