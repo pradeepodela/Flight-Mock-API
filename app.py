@@ -11,52 +11,100 @@ app = Flask(__name__)
 
 MOCK_FLIGHTS = [
 
-# ========================= FEB 10 =========================
+# ===================== FEB 10 =====================
 
-# -------- INTERNATIONAL --------
+# -------- MAA → DXB --------
 
-{"flight_id":"EK201-E","airline":"Emirates","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-10","timings":{"departure":"02:30","arrival":"05:45","duration":"4h 15m"},"pricing":{"amount":28500,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"25 Kg"},"seats_available":35,"fare_rules":"Refundable with fee","policies":{"cancellation":"₹5000 fee","reschedule":"₹3500 fee"}},
+{"flight_id":"EK210-E","airline":"Emirates","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-10","timings":{"departure":"01:50","arrival":"05:05","duration":"4h 15m"},"pricing":{"amount":28000,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"25 Kg"},"seats_available":48,"fare_rules":"Refundable with fee","policies":{"cancellation":"₹5000 fee","reschedule":"₹3500 fee"}},
 
-{"flight_id":"EK202-B","airline":"Emirates","class":"Business","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-10","timings":{"departure":"22:00","arrival":"01:15","duration":"4h 15m"},"pricing":{"amount":82000,"currency":"INR"},"baggage":{"cabin":"15 Kg","checkin":"40 Kg"},"seats_available":10,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
+{"flight_id":"EK211-B","airline":"Emirates","class":"Business","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-10","timings":{"departure":"03:30","arrival":"06:45","duration":"4h 15m"},"pricing":{"amount":79000,"currency":"INR"},"baggage":{"cabin":"15 Kg","checkin":"40 Kg"},"seats_available":8,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
 
-{"flight_id":"SQ301-E","airline":"Singapore Airlines","class":"Economy","route":{"source":"MAA","destination":"SIN"},"date":"2026-02-10","timings":{"departure":"10:00","arrival":"16:45","duration":"4h 45m"},"pricing":{"amount":32500,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"30 Kg"},"seats_available":28,"fare_rules":"Refundable","policies":{"cancellation":"₹4000 fee","reschedule":"₹3000 fee"}},
+{"flight_id":"AI210-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-10","timings":{"departure":"07:00","arrival":"11:20","duration":"4h 20m"},"pricing":{"amount":29500,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"23 Kg"},"seats_available":40,"fare_rules":"Partially refundable","policies":{"cancellation":"₹4500 fee","reschedule":"₹3000 fee"}},
 
-# -------- DOMESTIC --------
+{"flight_id":"QR210-E","airline":"Qatar Airways","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-10","timings":{"departure":"17:10","arrival":"21:30","duration":"4h 20m"},"pricing":{"amount":30500,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"30 Kg"},"seats_available":30,"fare_rules":"Refundable","policies":{"cancellation":"₹6000 fee","reschedule":"₹4000 fee"}},
 
-{"flight_id":"AI401-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-10","timings":{"departure":"06:00","arrival":"08:50","duration":"2h 50m"},"pricing":{"amount":6200,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"15 Kg"},"seats_available":40,"fare_rules":"Non-refundable","policies":{"cancellation":"₹2000 fee","reschedule":"₹1500 fee"}},
+{"flight_id":"EK212-E","airline":"Emirates","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-10","timings":{"departure":"12:30","arrival":"15:45","duration":"4h 15m"},"pricing":{"amount":28800,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"25 Kg"},"seats_available":36,"fare_rules":"Refundable with fee","policies":{"cancellation":"₹5000 fee","reschedule":"₹3500 fee"}},
 
-{"flight_id":"6E501-E","airline":"Indigo","class":"Economy","route":{"source":"MAA","destination":"BOM"},"date":"2026-02-10","timings":{"departure":"09:30","arrival":"11:30","duration":"2h"},"pricing":{"amount":4800,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"20 Kg"},"seats_available":38,"fare_rules":"Partially refundable","policies":{"cancellation":"₹1500 fee","reschedule":"₹1000 fee"}},
-
-{"flight_id":"VJ601-B","airline":"Vistara","class":"Business","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-10","timings":{"departure":"18:00","arrival":"20:40","duration":"2h 40m"},"pricing":{"amount":14500,"currency":"INR"},"baggage":{"cabin":"12 Kg","checkin":"30 Kg"},"seats_available":8,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
-
-{"flight_id":"AI402-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"BOM"},"date":"2026-02-10","timings":{"departure":"13:00","arrival":"15:00","duration":"2h"},"pricing":{"amount":5200,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"15 Kg"},"seats_available":32,"fare_rules":"Non-refundable","policies":{"cancellation":"₹2000 fee","reschedule":"₹1500 fee"}},
-
-{"flight_id":"6E502-E","airline":"Indigo","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-10","timings":{"departure":"21:00","arrival":"23:50","duration":"2h 50m"},"pricing":{"amount":5800,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"20 Kg"},"seats_available":34,"fare_rules":"Partially refundable","policies":{"cancellation":"₹1800 fee","reschedule":"₹1200 fee"}},
+{"flight_id":"EK213-B","airline":"Emirates","class":"Business","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-10","timings":{"departure":"22:00","arrival":"01:15","duration":"4h 15m"},"pricing":{"amount":82000,"currency":"INR"},"baggage":{"cabin":"15 Kg","checkin":"40 Kg"},"seats_available":6,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
 
 
-# ========================= FEB 11 =========================
+# -------- MAA → DEL --------
 
-{"flight_id":"EK211-E","airline":"Emirates","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"02:30","arrival":"05:45","duration":"4h 15m"},"pricing":{"amount":29000,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"25 Kg"},"seats_available":33,"fare_rules":"Refundable with fee","policies":{"cancellation":"₹5000 fee","reschedule":"₹3500 fee"}},
+{"flight_id":"AI401-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-10","timings":{"departure":"05:50","arrival":"08:40","duration":"2h 50m"},"pricing":{"amount":6200,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"15 Kg"},"seats_available":42,"fare_rules":"Non-refundable","policies":{"cancellation":"₹2000 fee","reschedule":"₹1500 fee"}},
 
-{"flight_id":"SQ311-E","airline":"Singapore Airlines","class":"Economy","route":{"source":"MAA","destination":"SIN"},"date":"2026-02-11","timings":{"departure":"10:30","arrival":"17:15","duration":"4h 45m"},"pricing":{"amount":33000,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"30 Kg"},"seats_available":26,"fare_rules":"Refundable","policies":{"cancellation":"₹4000 fee","reschedule":"₹3000 fee"}},
+{"flight_id":"6E501-E","airline":"Indigo","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-10","timings":{"departure":"08:30","arrival":"11:20","duration":"2h 50m"},"pricing":{"amount":6100,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"20 Kg"},"seats_available":38,"fare_rules":"Partially refundable","policies":{"cancellation":"₹1500 fee","reschedule":"₹1000 fee"}},
 
-{"flight_id":"EK212-B","airline":"Emirates","class":"Business","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"22:30","arrival":"01:45","duration":"4h 15m"},"pricing":{"amount":83000,"currency":"INR"},"baggage":{"cabin":"15 Kg","checkin":"40 Kg"},"seats_available":9,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
+{"flight_id":"VJ601-B","airline":"Vistara","class":"Business","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-10","timings":{"departure":"11:00","arrival":"13:50","duration":"2h 50m"},"pricing":{"amount":14800,"currency":"INR"},"baggage":{"cabin":"12 Kg","checkin":"30 Kg"},"seats_available":10,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
 
-{"flight_id":"AI411-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-11","timings":{"departure":"06:15","arrival":"09:05","duration":"2h 50m"},"pricing":{"amount":6300,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"15 Kg"},"seats_available":38,"fare_rules":"Non-refundable","policies":{"cancellation":"₹2000 fee","reschedule":"₹1500 fee"}},
+{"flight_id":"AI402-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-10","timings":{"departure":"14:00","arrival":"16:50","duration":"2h 50m"},"pricing":{"amount":6400,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"15 Kg"},"seats_available":36,"fare_rules":"Non-refundable","policies":{"cancellation":"₹2000 fee","reschedule":"₹1500 fee"}},
 
-{"flight_id":"6E511-E","airline":"Indigo","class":"Economy","route":{"source":"MAA","destination":"BOM"},"date":"2026-02-11","timings":{"departure":"09:45","arrival":"11:45","duration":"2h"},"pricing":{"amount":5000,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"20 Kg"},"seats_available":35,"fare_rules":"Partially refundable","policies":{"cancellation":"₹1500 fee","reschedule":"₹1000 fee"}},
+{"flight_id":"6E502-E","airline":"Indigo","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-10","timings":{"departure":"17:30","arrival":"20:20","duration":"2h 50m"},"pricing":{"amount":5900,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"20 Kg"},"seats_available":40,"fare_rules":"Partially refundable","policies":{"cancellation":"₹1800 fee","reschedule":"₹1200 fee"}},
 
-{"flight_id":"VJ611-B","airline":"Vistara","class":"Business","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-11","timings":{"departure":"18:30","arrival":"21:10","duration":"2h 40m"},"pricing":{"amount":14800,"currency":"INR"},"baggage":{"cabin":"12 Kg","checkin":"30 Kg"},"seats_available":7,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
+{"flight_id":"AI403-B","airline":"Air India","class":"Business","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-10","timings":{"departure":"20:45","arrival":"23:35","duration":"2h 50m"},"pricing":{"amount":15500,"currency":"INR"},"baggage":{"cabin":"12 Kg","checkin":"35 Kg"},"seats_available":6,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
 
 
-# ========================= FEB 12 =========================
+# ===================== FEB 11 =====================
 
-{"flight_id":"EK221-E","airline":"Emirates","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-12","timings":{"departure":"03:00","arrival":"06:15","duration":"4h 15m"},"pricing":{"amount":29500,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"25 Kg"},"seats_available":34,"fare_rules":"Refundable with fee","policies":{"cancellation":"₹5000 fee","reschedule":"₹3500 fee"}},
+# -------- MAA → DXB --------
 
-{"flight_id":"SQ321-E","airline":"Singapore Airlines","class":"Economy","route":{"source":"MAA","destination":"SIN"},"date":"2026-02-12","timings":{"departure":"11:00","arrival":"17:45","duration":"4h 45m"},"pricing":{"amount":33500,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"30 Kg"},"seats_available":25,"fare_rules":"Refundable","policies":{"cancellation":"₹4000 fee","reschedule":"₹3000 fee"}},
+{"flight_id":"EK220-E","airline":"Emirates","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"02:00","arrival":"05:15","duration":"4h 15m"},"pricing":{"amount":29000,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"25 Kg"},"seats_available":44,"fare_rules":"Refundable with fee","policies":{"cancellation":"₹5000 fee","reschedule":"₹3500 fee"}},
 
-{"flight_id":"AI421-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-12","timings":{"departure":"07:00","arrival":"09:50","duration":"2h 50m"},"pricing":{"amount":6400,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"15 Kg"},"seats_available":36,"fare_rules":"Non-refundable","policies":{"cancellation":"₹2000 fee","reschedule":"₹1500 fee"}},
+{"flight_id":"EK221-B","airline":"Emirates","class":"Business","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"04:00","arrival":"07:15","duration":"4h 15m"},"pricing":{"amount":80500,"currency":"INR"},"baggage":{"cabin":"15 Kg","checkin":"40 Kg"},"seats_available":9,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
 
+{"flight_id":"AI220-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"09:00","arrival":"13:20","duration":"4h 20m"},"pricing":{"amount":30000,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"23 Kg"},"seats_available":38,"fare_rules":"Partially refundable","policies":{"cancellation":"₹4500 fee","reschedule":"₹3000 fee"}},
+
+{"flight_id":"QR220-E","airline":"Qatar Airways","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"14:00","arrival":"18:20","duration":"4h 20m"},"pricing":{"amount":31200,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"30 Kg"},"seats_available":32,"fare_rules":"Refundable","policies":{"cancellation":"₹6000 fee","reschedule":"₹4000 fee"}},
+
+{"flight_id":"EK222-E","airline":"Emirates","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"18:30","arrival":"21:45","duration":"4h 15m"},"pricing":{"amount":29500,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"25 Kg"},"seats_available":35,"fare_rules":"Refundable with fee","policies":{"cancellation":"₹5000 fee","reschedule":"₹3500 fee"}},
+
+{"flight_id":"EK223-B","airline":"Emirates","class":"Business","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"23:30","arrival":"02:45","duration":"4h 15m"},"pricing":{"amount":83500,"currency":"INR"},"baggage":{"cabin":"15 Kg","checkin":"40 Kg"},"seats_available":7,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
+
+
+# -------- MAA → DEL --------
+
+{"flight_id":"AI410-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-11","timings":{"departure":"05:40","arrival":"08:30","duration":"2h 50m"},"pricing":{"amount":6300,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"15 Kg"},"seats_available":40,"fare_rules":"Non-refundable","policies":{"cancellation":"₹2000 fee","reschedule":"₹1500 fee"}},
+
+{"flight_id":"6E510-E","airline":"Indigo","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-11","timings":{"departure":"08:20","arrival":"11:10","duration":"2h 50m"},"pricing":{"amount":6150,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"20 Kg"},"seats_available":36,"fare_rules":"Partially refundable","policies":{"cancellation":"₹1500 fee","reschedule":"₹1000 fee"}},
+
+{"flight_id":"VJ610-B","airline":"Vistara","class":"Business","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-11","timings":{"departure":"11:10","arrival":"14:00","duration":"2h 50m"},"pricing":{"amount":15000,"currency":"INR"},"baggage":{"cabin":"12 Kg","checkin":"30 Kg"},"seats_available":9,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
+
+{"flight_id":"AI412-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-11","timings":{"departure":"14:10","arrival":"17:00","duration":"2h 50m"},"pricing":{"amount":6450,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"15 Kg"},"seats_available":34,"fare_rules":"Non-refundable","policies":{"cancellation":"₹2000 fee","reschedule":"₹1500 fee"}},
+
+{"flight_id":"6E512-E","airline":"Indigo","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-11","timings":{"departure":"17:20","arrival":"20:10","duration":"2h 50m"},"pricing":{"amount":6000,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"20 Kg"},"seats_available":38,"fare_rules":"Partially refundable","policies":{"cancellation":"₹1800 fee","reschedule":"₹1200 fee"}},
+
+{"flight_id":"AI413-B","airline":"Air India","class":"Business","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-11","timings":{"departure":"21:30","arrival":"00:20","duration":"2h 50m"},"pricing":{"amount":15800,"currency":"INR"},"baggage":{"cabin":"12 Kg","checkin":"35 Kg"},"seats_available":7,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
+
+
+# ===================== FEB 12 =====================
+
+# -------- MAA → DXB --------
+
+{"flight_id":"EK230-E","airline":"Emirates","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-12","timings":{"departure":"02:20","arrival":"05:35","duration":"4h 15m"},"pricing":{"amount":30000,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"25 Kg"},"seats_available":42,"fare_rules":"Refundable with fee","policies":{"cancellation":"₹5000 fee","reschedule":"₹3500 fee"}},
+
+{"flight_id":"EK231-B","airline":"Emirates","class":"Business","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-12","timings":{"departure":"04:40","arrival":"07:55","duration":"4h 15m"},"pricing":{"amount":81500,"currency":"INR"},"baggage":{"cabin":"15 Kg","checkin":"40 Kg"},"seats_available":8,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
+
+{"flight_id":"AI230-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-12","timings":{"departure":"08:40","arrival":"13:00","duration":"4h 20m"},"pricing":{"amount":30500,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"23 Kg"},"seats_available":36,"fare_rules":"Partially refundable","policies":{"cancellation":"₹4500 fee","reschedule":"₹3000 fee"}},
+
+{"flight_id":"QR230-E","airline":"Qatar Airways","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-12","timings":{"departure":"13:00","arrival":"17:20","duration":"4h 20m"},"pricing":{"amount":31800,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"30 Kg"},"seats_available":30,"fare_rules":"Refundable","policies":{"cancellation":"₹6000 fee","reschedule":"₹4000 fee"}},
+
+{"flight_id":"EK232-E","airline":"Emirates","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-12","timings":{"departure":"18:10","arrival":"21:25","duration":"4h 15m"},"pricing":{"amount":30200,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"25 Kg"},"seats_available":34,"fare_rules":"Refundable with fee","policies":{"cancellation":"₹5000 fee","reschedule":"₹3500 fee"}},
+
+{"flight_id":"EK233-B","airline":"Emirates","class":"Business","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-12","timings":{"departure":"23:10","arrival":"02:25","duration":"4h 15m"},"pricing":{"amount":84500,"currency":"INR"},"baggage":{"cabin":"15 Kg","checkin":"40 Kg"},"seats_available":6,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
+
+
+# -------- MAA → DEL --------
+
+{"flight_id":"AI420-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-12","timings":{"departure":"06:10","arrival":"09:00","duration":"2h 50m"},"pricing":{"amount":6500,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"15 Kg"},"seats_available":38,"fare_rules":"Non-refundable","policies":{"cancellation":"₹2000 fee","reschedule":"₹1500 fee"}},
+
+{"flight_id":"6E520-E","airline":"Indigo","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-12","timings":{"departure":"09:00","arrival":"11:50","duration":"2h 50m"},"pricing":{"amount":6200,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"20 Kg"},"seats_available":36,"fare_rules":"Partially refundable","policies":{"cancellation":"₹1500 fee","reschedule":"₹1000 fee"}},
+
+{"flight_id":"VJ620-B","airline":"Vistara","class":"Business","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-12","timings":{"departure":"11:40","arrival":"14:30","duration":"2h 50m"},"pricing":{"amount":15200,"currency":"INR"},"baggage":{"cabin":"12 Kg","checkin":"30 Kg"},"seats_available":8,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
+
+{"flight_id":"AI422-E","airline":"Air India","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-12","timings":{"departure":"14:20","arrival":"17:10","duration":"2h 50m"},"pricing":{"amount":6600,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"15 Kg"},"seats_available":35,"fare_rules":"Non-refundable","policies":{"cancellation":"₹2000 fee","reschedule":"₹1500 fee"}},
+
+{"flight_id":"6E522-E","airline":"Indigo","class":"Economy","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-12","timings":{"departure":"18:00","arrival":"20:50","duration":"2h 50m"},"pricing":{"amount":6100,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"20 Kg"},"seats_available":37,"fare_rules":"Partially refundable","policies":{"cancellation":"₹1800 fee","reschedule":"₹1200 fee"}},
+
+{"flight_id":"AI423-B","airline":"Air India","class":"Business","route":{"source":"MAA","destination":"DEL"},"date":"2026-02-12","timings":{"departure":"21:40","arrival":"00:30","duration":"2h 50m"},"pricing":{"amount":15800,"currency":"INR"},"baggage":{"cabin":"12 Kg","checkin":"35 Kg"},"seats_available":6,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
 
 # ========================= FEB 13 =========================
 
