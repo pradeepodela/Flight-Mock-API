@@ -55,9 +55,9 @@ MOCK_FLIGHTS = [
 
 {"flight_id":"QR220E","airline":"Qatar Airways","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"14:00","arrival":"18:20","duration":"4h 20m"},"pricing":{"amount":31200,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"30 Kg"},"seats_available":32,"fare_rules":"Refundable","policies":{"cancellation":"₹6000 fee","reschedule":"₹4000 fee"}},
 
-{"flight_id":"EK222-E","airline":"Emirates","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"18:30","arrival":"21:45","duration":"4h 15m"},"pricing":{"amount":29500,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"25 Kg"},"seats_available":35,"fare_rules":"Refundable with fee","policies":{"cancellation":"₹5000 fee","reschedule":"₹3500 fee"}},
+{"flight_id":"EK222E","airline":"Emirates","class":"Economy","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"18:30","arrival":"21:45","duration":"4h 15m"},"pricing":{"amount":29500,"currency":"INR"},"baggage":{"cabin":"7 Kg","checkin":"25 Kg"},"seats_available":35,"fare_rules":"Refundable with fee","policies":{"cancellation":"₹5000 fee","reschedule":"₹3500 fee"}},
 
-{"flight_id":"EK223-B","airline":"Emirates","class":"Business","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"23:30","arrival":"02:45","duration":"4h 15m"},"pricing":{"amount":83500,"currency":"INR"},"baggage":{"cabin":"15 Kg","checkin":"40 Kg"},"seats_available":7,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
+{"flight_id":"EK223B","airline":"Emirates","class":"Business","route":{"source":"MAA","destination":"DXB"},"date":"2026-02-11","timings":{"departure":"23:30","arrival":"02:45","duration":"4h 15m"},"pricing":{"amount":83500,"currency":"INR"},"baggage":{"cabin":"15 Kg","checkin":"40 Kg"},"seats_available":7,"fare_rules":"Fully refundable","policies":{"cancellation":"Free","reschedule":"Free"}},
 
 
 # -------- MAA → DEL --------
